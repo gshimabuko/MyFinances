@@ -1,0 +1,48 @@
+﻿@model MyFinances.Models.FinancialAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4>Transfers</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th>
+                @Html.DisplayName("Source Account")
+            </th>
+            <th>
+                @Html.DisplayName("Destination Account")
+            </th>
+            <th>
+                @Html.DisplayName("Ammount")
+            </th>
+            <th>
+                @Html.DisplayName("Exchange Rate")
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.transferSource)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sourceAccount.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.destinationAccount.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ammount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.exchangeRate)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

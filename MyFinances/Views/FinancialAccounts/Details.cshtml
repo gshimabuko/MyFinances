@@ -1,0 +1,74 @@
+﻿@model MyFinances.Models.FinancialAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FinancialAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accountBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accountBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.currency)
+        </dd>
+
+
+    </dl>
+</div>
+<hr />
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#tab_1" data-toggle="tab">Income Records</a>
+    </li>
+    <li>
+        <a href="#tab_2" data-toggle="tab">Expense Records</a>
+    </li>
+    <li>
+        <a href="#tab_3" data-toggle="tab">Inbound Transfers</a>
+    </li>
+    <li>
+        <a href="#tab_4" data-toggle="tab">Outbound Transfers</a>
+    </li>
+</ul>
+<div class="tab-content">
+
+    <div class="tab-pane active" id="tab_1">
+        @Html.Partial("_FirstTab")
+    </div>
+    <div class="tab-pane fade" id="tab_2">
+        @Html.Partial("_SecondTab")
+    </div>
+    <div class="tab-pane fade" id="tab_3">
+        @Html.Partial("_ThirdTab")
+    </div>
+    <div class="tab-pane fade" id="tab_4">
+        @Html.Partial("_FourthTab")
+    </div>
+</div>
+    
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.financialAccountID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

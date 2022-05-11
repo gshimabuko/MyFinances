@@ -1,0 +1,42 @@
+﻿@model MyFinances.Models.FinancialAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4>Expense Records</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th>
+                @Html.DisplayName("Ammount")
+            </th>
+            <th>
+                @Html.DisplayName("Category")
+            </th>
+            <th>
+                @Html.DisplayName("Details")
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.expenseRecords)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ammount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.details)
+        </td>
+    </tr>
+        }
+    </table>
+</div>

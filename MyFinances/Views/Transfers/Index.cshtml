@@ -1,0 +1,57 @@
+﻿    @model IEnumerable<MyFinances.Models.Transfer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Source Account")
+        </th>
+        <th>
+            @Html.DisplayName("Destination Account")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ammount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exchangeRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.OrderByDescending(item => item.date)) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.sourceAccount.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.destinationAccount.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ammount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.exchangeRate)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit", new { id=item.transferID }) |*@
+        @Html.ActionLink("Details", "Details", new { id = item.transferID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.transferID })
+    </td>
+</tr>
+}
+
+</table>
